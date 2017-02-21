@@ -37,22 +37,6 @@ const grayscaleToChar = (grade) => {
   return '';
 };
 
-
-/*const jpegToText = (file) => {
-  const jpegData = fs.readFileSync(file);
-  console.log(`JPEG DATA: \n ${jpegData}`);
-  console.log('END JPEG DATA');
-  const rawJpegData = jpeg.decode(jpegData);
-  console.log(`JPEG RAW DATA: \n ${rawJpegData}`);
-  const pixelArray = _.chunk(rawJpegData, 4);
-  const grayscaleJpeg = pixelArray.map(pixelToGrayscale);
-  const charJpeg = grayscaleJpeg.map(grayscaleToChar);
-  const jpegRows = _.chunk(charJpeg, rawJpegData.width);
-  const evenRows = jpegRows.filter((e, index) => index % 2 === 0);
-
-  return evenRows.join('\n');
-};*/
-
 export default (file) => {
   const fileName = path.basename(file, '.jpg');
   const outputFileName = `${fileName}.txt`;
