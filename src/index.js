@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 const avg = (args) => {
-  const sum = args.slice(0, -1).reduce((acc, e) => {
+  const sum = args.reduce((acc, e) => {
     const newAcc = acc + e;
     return newAcc;
   }, 0);
@@ -14,27 +14,9 @@ const avg = (args) => {
 const pixelToGrayscale = rgb => (avg(rgb.slice(0, -1)));
 
 const grayscaleToChar = (grade) => {
-  if (grade < 25) {
-    return ' ';
-  } else if (grade < 50) {
-    return '-';
-  } else if (grade < 75) {
-    return '|';
-  } else if (grade < 100) {
-    return '\\';
-  } else if (grade < 125) {
-    return '/';
-  } else if (grade < 150) {
-    return '*';
-  } else if (grade < 175) {
-    return '0';
-  } else if (grade < 200) {
-    return '8';
-  } else if (grade < 225) {
-    return '@';
-  }
-
-  return '';
+  const chars = [' ', '-', '|', '\\', '/', '*', '?', '6', '8', '@'];
+  const step = 255 / (chars.length - 1);
+  return chars[chars.length - (Math.floor(grade / step) + 1)];
 };
 
 export default (file) => {
