@@ -1,0 +1,6 @@
+/.vagrant
+/node_modules/
+/tmp
+/dist
+/src/bin/*.json
+/cm/*.retry

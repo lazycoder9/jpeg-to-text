@@ -1,0 +1,55 @@
+{
+  "name": "jpeg-to-text",
+  "version": "0.0.1",
+  "description": "",
+  "bin": {
+    "gendiff": "dist/bin/jpeg-to-text.js"
+  },
+  "scripts": {
+    "test": "jest",
+    "babel-node": "babel-node",
+    "flow": "flow",
+    "flow-typed": "flow-typed",
+    "gulp": "gulp",
+    "eslint": "eslint",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lazycoder9/jpeg-to-text.git"
+  },
+  "keywords": [
+    "jpeg",
+    "text picture"
+  ],
+  "author": "LazyCoder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lazycoder9/jpeg-to-text/issues"
+  },
+  "homepage": "https://github.com/lazycoder9/jpeg-to-text.git",
+  "devDependencies": {
+    "babel-cli": "*",
+    "babel-core": "*",
+    "babel-eslint": "*",
+    "babel-plugin-syntax-flow": "*",
+    "babel-plugin-transform-flow-strip-types": "*",
+    "babel-plugin-transform-runtime": "*",
+    "babel-preset-env": "*",
+    "babel-preset-stage-0": "*",
+    "debug": "*",
+    "eslint": "*",
+    "eslint-config-airbnb": "*",
+    "eslint-plugin-flowtype": "*",
+    "eslint-plugin-import": "*",
+    "flow-bin": "*",
+    "flow-typed": "*",
+    "jest": "*"
+  },
+  "dependencies": {
+    "commander": "^2.9.0",
+    "lodash": "^4.17.4"
+  },
+  "main": "index.js"
+}
