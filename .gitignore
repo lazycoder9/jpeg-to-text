@@ -4,3 +4,4 @@
 /dist
 /src/bin/*.json
 /cm/*.retry
+npm-debug.log

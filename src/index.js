@@ -25,11 +25,13 @@ export default (file) => {
   const jpegData = fs.readFileSync(file);
   const jpegRawData = jpeg.decode(jpegData, true);
   const pixelArray = _.chunk(jpegRawData.data, 4);
-  const grayscaleJpeg = pixelArray.map(pixelToGrayscale);
-  const charJpeg = grayscaleJpeg.map(grayscaleToChar);
-  const jpegRows = _.chunk(charJpeg, jpegRawData.width).map(e => e.join(''));
-  const evenRows = jpegRows.filter((e, index) => index % 2 === 0);
-  const textPic = evenRows.join('\n');
-  fs.writeFile(outputFileName, textPic, 'utf-8');
+  const charJpeg = pixelArray
+    .map(pixelToGrayscale)
+    .map(grayscaleToChar);
+  const jpegRows = _.chunk(charJpeg, jpegRawData.width)
+    .map(e => e.join(''))
+    .filter((e, index) => index % 3 === 0)
+    .join('\n');
+  fs.writeFileSync(outputFileName, jpegRows, 'utf-8');
   return `Jpeg has been transformed to ${outputFileName}`;
 };
